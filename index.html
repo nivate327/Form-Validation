@@ -1,0 +1,231 @@
+<html>
+ <head> 
+  <title>log in</title> 
+  <style>
+      body
+{
+  background-color:#4BDFCC;
+  font-family: 'Crimson Text', serif;
+}
+
+#box
+{
+  background-color:white;
+  width:500px;
+  height:630px;
+  margin:70px auto;
+  border-radius:12px; 
+ box-shadow:1px 1px 12px #7E7B7B;
+ display:flex;
+ flex-direction:column;
+ 
+}
+
+h1
+{
+   margin-top:52px;
+  margin-left:53px;
+  border-bottom:2px solid white;
+ display:inline-block; 
+}
+
+ #box input
+ {
+   margin-top:20px;
+    width:340px;
+    height:40px;
+    border:none;
+    outline:none;
+    border-bottom:2px solid #4BDFCC; 
+    font-family: 'Crimson Text', serif;
+ }
+ 
+ i{
+  margin-left:52px;
+  width:50px;
+  
+ }
+ 
+ #box #button
+ {
+    outline:none;
+    margin:20px 50px;
+    width:400px;
+    height:34px;
+    background-color:#4BDFCC;  
+    border:none;
+    border-radius:10px;
+    font-family: 'Crimson Text', serif;
+ }
+ 
+#box #button:hover{
+   background-color:#F6EFEF;
+  // cursor:pointer;
+   color:black;
+ }
+ 
+ .message
+ {
+   color:red;
+   font-weight:bold;
+   font-size:15px;
+   text-align:center;
+ }
+ 
+.s
+{
+  
+  width:300px;
+  height:20px;
+  border:1px solid none;
+  margin:1px auto;
+}
+</style>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600&amp;display=swap" rel="stylesheet"> 
+  <script src="https://kit.fontawesome.com/891dd0f0bd.js" crossorigin="anonymous"></script> 
+ </head> 
+ <body> 
+  <div id="box"> 
+   <form action="#" onsubmit="return validation()"> 
+    <h1>Registrations</h1> 
+    <div class="b"> 
+     <i class="fa fa-user"></i> 
+     <input type="text" , name="user" id="Username" placeholder="Enter your Username"> 
+     <div class="s"> 
+      <span id="username" class="message"> </span> 
+     </div> 
+    </div> 
+    <div class="b"> 
+     <i class="fa fa-key"></i> 
+     <input type="password" , name="pass" id="pass" placeholder="Enter your Password"> 
+     <div class="s"> 
+      <span id="passw" class="message"> </span> 
+     </div> 
+    </div> 
+    <div class="b"> 
+     <i class="fa fa-key"></i> 
+     <input type="password" , name="conpass" id="conpassw" placeholder="Enter your Confirm Password"> 
+     <div class="s"> 
+      <span id="conpass" class="message"> </span> 
+     </div> 
+    </div> 
+    <div class="b"> 
+     <i class="fa fa-mobile"></i> 
+     <input type="text" , name="mobile_number" id="mobile_number" placeholder="Enter your Mobile number"> 
+     <div class="s"> 
+      <span id="mb" class="message"> </span> 
+     </div> 
+    </div> 
+    <div class="b"> 
+     <i class="fa fa-envelope"></i> 
+     <input type="text" , name="email" id="emails" placeholder="Enter your Email"> 
+     <div class="s"> 
+      <span id="email" class="message"> </span> 
+     </div> 
+    </div> 
+    <input type="submit" , value="submit" id="button"> 
+   </form> 
+  </div> 
+  <!--<h2>Log in</h2>--> 
+  <script>
+     function validation()
+     {
+       let user=document.getElementById("Username").value;
+       let pass=document.getElementById("pass").value;
+       let conpass=document.getElementById("conpassw").value;
+       let mb=document.getElementById("mobile_number").value;
+       let email=document.getElementById("emails").value;
+      
+        
+       if(user=="")
+       {
+        
+        document.getElementById("username").innerHTML="<br> ** Please Fill Username Field";
+        return false;
+       }
+       
+       if((user.length<3) || (user.length>20))
+        {
+           document.getElementById("username").innerHTML="<br> ** Usename length must be 3 between 20";
+        return false;
+  
+        }
+        
+        if(!isNaN(user))
+        {
+           document.getElementById("username").innerHTML="<br> ** Only charecter and symbol are allowed";
+        return false;
+   
+        } 
+            
+       if(pass=="")
+       {
+        
+        document.getElementById("passw").innerHTML="<br> ** Please Fill Password Field";
+        return false;
+       }
+       
+         if((pass.length<5) || (pass.length>20))
+        {
+           document.getElementById("passw").innerHTML="<br> ** Password length must be 5 between 20";
+        return false;
+  
+        }
+  
+        if(pass!=conpass)
+        {
+                   document.getElementById("conpass").innerHTML="<br> ** Password are not matching";
+        return false;
+          
+        }
+        
+       if(conpass=="")
+       {
+        
+        document.getElementById("conpass").innerHTML="<br> ** Please Fill Confirm Password Field";
+        return false;
+       }
+       
+        if(mb=="")
+        {
+        
+        document.getElementById("mb").innerHTML="<br> ** Please Fill Username Field";
+        return false;
+        }
+       
+       if(isNaN(mb))
+        {
+        
+        document.getElementById("mb").innerHTML="<br> ** user must be write number only not charecter";
+        return false;
+        }
+       
+        if(mb.length!=10)
+        {
+        
+        document.getElementById("mb").innerHTML="<br> ** mobile number length must be 10";
+        return false;
+        }
+    
+       if(email=="")
+       {
+        
+        document.getElementById("email").innerHTML="<br> ** Please Fill email Field";
+        return false;
+       }
+       
+       if(email.indexOf('@')<=0)
+       {
+          document.getElementById("email").innerHTML="<br> ** @ Invalid Position ";
+        return false;  
+       }
+       
+       if((email.charAt(email.length-4)!='.') && (email.charAt(email.length-3)!='.'))
+       {
+          document.getElementById("email").innerHTML="<br> ** . Invalid Position ";
+        return false;  
+       }
+     }
+ </script> 
+ </body>
+</html>
